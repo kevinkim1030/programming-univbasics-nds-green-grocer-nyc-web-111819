@@ -69,6 +69,10 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
+  counter = 0 
+  while counter < cart.length do 
+    if cart[counter][:clearance]
+      cart[counter][:price] = cart[counter][:price] - (cart[counter])
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
