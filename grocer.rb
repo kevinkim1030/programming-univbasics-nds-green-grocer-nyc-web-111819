@@ -85,6 +85,17 @@ end
 
 
 def checkout(cart, coupons)
+  consolidated_cart = consolidate_cart(cart)
+  couponed_cart = apply_coupons(consolidated_cart)
+  final_cart = apply_clearance(couponed_cart)
+  
+  total = 0 
+  counter = 0 
+  while counter < final_cart.length do 
+    total += final_cart[counter][:price] * final_cart[counter][:count]
+    counter += 1 
+  end 
+end
   # Consult README for inputs and outputs
   #
   # This method should call
@@ -94,4 +105,3 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-end
